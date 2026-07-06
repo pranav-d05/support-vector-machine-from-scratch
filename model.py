@@ -24,15 +24,25 @@ def initialize_parameters(n_features):
     """Return a dict with 'w' of shape (n_features,) and scalar 'b'."""
     # TODO: create starting weights and bias for a linear SVM
     w = np.ones((n_features))
-    b = int(1)
+    b = int(0)
 
     return {
         'w':w,
         'b':b
     }
 
-# Step 3 - compute_scores (not yet solved)
-# TODO: implement
+# Step 3 - compute_scores
+import numpy as np
+
+def compute_scores(x, params):
+    """Return raw linear scores x @ w + b, shape (n_samples,)."""
+    # TODO: score each example as a linear function of the current weights and bias.
+    w = params['w']
+    b = params['b']
+
+    score = (x @ w) + b 
+    score = score.flatten()
+    return score
 
 # Step 4 - predict_from_scores (not yet solved)
 # TODO: implement
