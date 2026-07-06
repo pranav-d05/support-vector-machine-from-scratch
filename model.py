@@ -106,8 +106,24 @@ def apply_update(params, grads, learning_rate):
         'b':b
     }
 
-# Step 9 - train_svm (not yet solved)
-# TODO: implement
+# Step 9 - train_svm
+def train_svm(x, y, learning_rate, reg_lambda, n_epochs):
+    # TODO: fit a linear SVM by repeatedly updating parameters over n_epochs passes.
+    dic = initialize_parameters(x.shape[-1])
+
+    w = dic['w']
+    b = dic['b']
+    for _ in range(n_epochs):
+        l = compute_gradients(x,y,{'w':w,'b':b},reg_lambda)
+        dw = l['dw']
+        db = l['db']
+        w = w - learning_rate*dw 
+        b = b - learning_rate*db 
+    
+    return {
+        'w':w,
+        'b':b
+    }
 
 # Step 10 - predict_labels (not yet solved)
 # TODO: implement
