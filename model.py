@@ -43,8 +43,13 @@ def compute_scores(x, params):
     score = (x @ w) + b 
     return score
 
-# Step 4 - predict_from_scores (not yet solved)
-# TODO: implement
+# Step 4 - predict_from_scores
+import numpy as np
+
+def predict_from_scores(scores):
+    # TODO: convert a 1-D array of raw scores into +1 / -1 class predictions.
+    ans = np.where(scores>=0,1,-1)
+    return ans
 
 # Step 5 - hinge_loss_example (not yet solved)
 # TODO: implement
